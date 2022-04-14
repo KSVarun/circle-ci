@@ -33,8 +33,7 @@ workflows:
   version: 2
   test_flow:
     when:
-      or:
-        - equal: [main]
+      - equal: [main]
 
     jobs:
       - initial
