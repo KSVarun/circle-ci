@@ -34,8 +34,7 @@ workflows:
   test_flow:
     when:
       or:
-        - equal: [main, <<pipeline.get.branch>>]
-        - << pipeline.parameters.tag>>
+        - equal: [main]
 
     jobs:
       - initial
