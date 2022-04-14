@@ -17,7 +17,7 @@ jobs:
 
             if [ $(echo $pr_response | jq length) -eq 0 ]; then
               echo "No PR found to update"
-              circleci-agent step halt
+              exit 1
             else
               pr_comment_url=$(echo $pr_response | jq -r ".[]._links.comments.href")
             fi
@@ -32,5 +32,10 @@ jobs:
 workflows:
   version: 2
   test_flow:
+    when:
+      or:
+        - equal: [main, <<pipeline.get.branch>>]
+        - << pipeline.parameters.tag>>
+
     jobs:
       - initial
