@@ -10,8 +10,9 @@ jobs:
       - run:
           name: push comment to github pr
           command: |
+            echo $CIRCLE_PULL_REQUEST
             if [[ -z "$CIRCLE_PULL_REQUEST" ]]; then
-              echo "This is not a pull request" &&  circleci-agent step halt
+              echo "This is not a pull request" &&  exit 1
             fi
 
             sudo apt-get install jq
