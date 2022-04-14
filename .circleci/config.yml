@@ -32,8 +32,5 @@ jobs:
 workflows:
   version: 2
   test_flow:
-    when:
-      - equal: [main]
-
     jobs:
       - initial
