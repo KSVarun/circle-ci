@@ -10,8 +10,8 @@ jobs:
       - run:
           name: push comment to github pr
           command: |
-            echo $GH_TOKEN
-            echo $GH_USER
+            echo $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+            echo $CIRCLE_PROJECT_USERNAME:$CIRCLE_BRANCH
 
 workflows:
   version: 2
