@@ -17,6 +17,7 @@ jobs:
 
             if [ $(echo $pr_response | jq length) -eq 0 ]; then
               echo "No PR found to update"
+              circleci-agent step halt
             else
               pr_comment_url=$(echo $pr_response | jq -r ".[]._links.comments.href")
             fi
