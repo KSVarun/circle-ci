@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  initial:
+    docker:
+      - image: cimg/node:16.13.1
+    steps:
+      - checkout
+      - run: echo 'yep'
+
+workflows:
+  version: 2
+  test_flow:
+    jobs:
+      - initial
