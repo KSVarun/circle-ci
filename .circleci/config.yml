@@ -10,7 +10,7 @@ jobs:
       - run:
           name: push comment to github pr
           command: |
-            echo $CIRCLE_PULL_REQUEST - pr
+            echo $CIRCLE_PULL_REQUEST - pr1
             if [[ -z "$CIRCLE_PULL_REQUEST" ]]; then
               echo "This is not a pull request" &&  exit 1
             fi
